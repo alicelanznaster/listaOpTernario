@@ -10,10 +10,23 @@
     //Entrada
     const horas = Number(prompt(`Informe a quantidade de horas trabalhadas semanalmente.`));
     const precoHora = Number(prompt(`Informe quanto recebe por hora trabalhada.`));
+
+    // <= 45 sem adicional; >45 e <= 60 + 20%; >60  + 30
     
     //Processamento
-    
+    const add0 = horas * precoHora
+    const add20 = horas * precoHora + (horas * 20/100);
+    const add30 = horas * precoHora + (horas * 30/100);
+    const hora0 = add0 / horas;
+    const hora20 = add20 / horas;
+    const hora30 = add30 / horas;
     
     //Saída
+    (horas > 0 && horas <= 45) ?
+        alert(`O salário final recebido semanalmente é de R$${add0.toFixed(2)}, e o preço por cada hora trabalhada é de R$${hora0.toFixed(2)}.`) :
+        (horas > 45 && horas <= 60) ?
+            alert(`O salário final recebido semanalmente é de R$${add20.toFixed(2)}, e o preço por cada hora trabalhada é de R$${hora20.toFixed(2)}.`) : 
+            alert(`O salário final recebido semanalmente é de R$${add30.toFixed(2)}, e o preço por cada hora trabalhada é de R$${hora30.toFixed(2)}.`) ;
+                    
 
 </script>
